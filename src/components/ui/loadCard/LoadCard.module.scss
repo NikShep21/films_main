@@ -1,0 +1,40 @@
+.loadCard {
+    position: relative;
+    background-color: #444; 
+    
+    overflow: hidden; 
+  
+    &::before {
+      content: "";
+      position: absolute;
+      top: -150%; 
+      left: -150%; 
+      width: 300%; 
+      height: 300%; 
+      background: linear-gradient(
+        135deg, 
+        rgba(0, 0, 0, 0) 40%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        rgba(0, 0, 0, 0) 60% 
+      );
+      animation: diagonalShimmer 1.2s infinite linear;
+    }
+  }
+  
+  @keyframes diagonalShimmer {
+    0% {
+      transform: translateX(0) translateY(0);
+    }
+    100% {
+      transform: translateX(150%) translateY(150%);
+    }
+  }
+.text{
+  margin-top: 6px;
+  width: 70%;
+  border-radius: 2px;
+  font-size: clamp(11px,105%,22px);
+  background-color: #444; 
+  color: transparent;
+  user-select: none; 
+}

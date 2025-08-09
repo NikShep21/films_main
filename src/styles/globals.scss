@@ -1,0 +1,11 @@
+@use './reset.scss';
+@use './variables.scss' as *;
+html, body{
+    height: 100%;
+    width: 100%;
+}
+body{
+    color: white;
+    background-color: $bgColor;
+    font-size: $defaultSize;
+}

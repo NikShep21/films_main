@@ -1,0 +1,109 @@
+.buttonPlay {
+    width: var(--size);
+    height: var(--size);
+    position: relative;
+    cursor: pointer;
+    --thick: calc(var(--size) / 7);
+    --lenElement: calc(var(--size) * 0.88);
+    --offset: calc(var(--thick) * 0.577);
+    z-index: 1;
+    transition: all 0.2s ease;
+    .lineLeft,
+      .lineBottom,
+      .lineTop{
+        &:after{
+
+          content: '';
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          transition: all 0.2s ease;
+          background-color: red;
+
+
+        }
+      }
+    .lineLeft::after {
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+    .lineBottom::after {
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+    .lineTop::after {
+      transform: scaleX(0);
+      transform-origin: right;
+    }
+    .lineLeft {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: white;
+      width: var(--thick);
+      height: var(--lenElement);
+      clip-path: polygon(
+        0 0,
+        100% var(--offset),
+        100% calc(var(--lenElement) - var(--offset)),
+        0 100%
+      );
+    }
+  
+    .lineBottom {
+      position: absolute;
+      width: var(--lenElement);
+      height: var(--thick);
+      bottom: calc(var(--offset) * -1.2);
+      background-color: white;
+      transform-origin: left bottom;
+      transform: rotate(-30deg);
+      clip-path: polygon(
+        var(--offset) 0,
+        calc(var(--lenElement) - var(--offset)) 0,
+        100% 100%,
+        0 100%
+      );
+    }
+  
+    .lineTop {
+      position: absolute;
+      background-color: white;
+      width: var(--lenElement);
+      left: calc(var(--offset) * 2.35);
+      top: calc(var(--offset) * 1.25);
+      height: var(--thick);
+      transform-origin: left top;
+      transform: rotate(30deg);
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        calc(var(--lenElement) - var(--offset)) 100%,
+        var(--offset) 100%
+      );
+    }
+    &:hover,
+    &.forceHover{
+      
+      transform: scale(1.1,1.1);
+      .lineLeft::after {
+        transform: scaleY(1);
+        
+      }
+    
+      .lineBottom::after {
+        transform: scaleX(1);
+        
+      }
+    
+      .lineTop::after {
+        transform: scaleX(1);
+        
+      }
+      
+
+      
+    }
+  }
+
+  

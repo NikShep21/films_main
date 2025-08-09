@@ -1,0 +1,6 @@
+@use '_variables.scss' as *;
+
+@mixin container{
+    max-width: $containerSize;
+    margin: 0 auto;
+}

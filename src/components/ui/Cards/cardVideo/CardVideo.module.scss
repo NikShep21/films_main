@@ -1,0 +1,41 @@
+.card{
+    scale: 0px;
+    transition: all 0.15s ease;
+    cursor: pointer;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    &:hover{
+        
+        transform: scale(1.04, 1.04);
+    }
+    
+}
+.name{
+    font-size: 20px;
+}
+.video{
+    position: relative;
+    .image{
+    
+    
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        aspect-ratio: 16/9;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .buttonPlay{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+.modal{
+    width: 80vw;
+    height: 80vh;
+    background-color: black;
+}

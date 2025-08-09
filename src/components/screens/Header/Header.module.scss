@@ -1,0 +1,45 @@
+@use 'variables.scss' as *;
+@use 'mixins.scss' as *;
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    
+    .container{
+        
+        padding: 1.5rem 1rem;
+        
+        display: flex;
+        
+        align-items: center;
+        justify-content: space-between;
+        @include container;
+        .navContainer{
+            display: flex;
+            gap: 3rem;
+            a{
+                
+                color: #ABB7C4;
+            }
+            a:hover{
+                opacity: 1;
+                color: white;
+            }
+        }
+        @media(max-width:768px) {
+            .navContainer{
+                display: none;
+            }
+        }
+        
+        .navAuthContainer{
+            display: flex;
+            gap: 3vw;
+            align-items: center;
+            
+        }
+        
+    }
+    
+    
+}    

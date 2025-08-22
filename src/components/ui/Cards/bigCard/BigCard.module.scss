@@ -1,9 +1,9 @@
 .card{
     position: relative;
+    
     border-radius: 20px;
     overflow: hidden;
-   
-    
+    background-color: white;
     .unVisibleShadow{
         z-index: 1;
         background-color: black;

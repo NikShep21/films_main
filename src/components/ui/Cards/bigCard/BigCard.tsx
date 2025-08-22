@@ -1,20 +1,20 @@
-'use client'
-import styles from './BigCard.module.scss'
+"use client";
+import styles from "./BigCard.module.scss";
 import { IMassiveMovie, IMassiveTv } from "@/shared/types/typesResponse";
-import { forwardRef } from "react";
-import ImagePlaceholder from "../../ImagePlaceholder/ImagePlaceholder";
+import { getUrlImage } from "@/shared/utils/utils";
+import Image from "next/image";
 
 interface ICard {
-  data: null | IMassiveMovie | IMassiveTv;
+  data: IMassiveMovie;
   ref?: React.RefObject<HTMLDivElement>;
-  isLoading?: boolean;
+  aspect?: string;
 }
-const BigCard = forwardRef(({data, isLoading=false}:ICard) => {
-  return(
-    <div className={styles.card}>
-     
+const BigCard = ({ data, aspect }: ICard) => {
+  return (
+    <div style={{aspectRatio:aspect}} className={styles.card}>
+      <Image sizes="(max-width: 600px) 100vw, 50vw" fill alt="Image" src={getUrlImage(data.backdrop_path)} ></Image>
     </div>
-  )
-})
+  );
+};
 
-export default BigCard
+export default BigCard;

@@ -1,0 +1,19 @@
+@use 'mixins.scss' as *;
+.carousel{
+    position: relative;
+    @include container;
+    padding: 0px 4rem;
+    touch-action: none;
+    
+    .carouselLine{
+        position: relative;
+        display: flex;
+        gap: 2rem;
+        .cardWrapper{
+            
+            flex: 0 0 100%;
+
+        }
+        
+    }
+}

@@ -1,4 +1,5 @@
 import { off } from "process";
+import { ITypeTitle } from "./TypeParamsApi";
 
 //неправильные типы !!!!!!!
 interface BaseMedia {
@@ -139,3 +140,9 @@ export type IMassiveResponseMap = {
   tv: IMassiveTv[];
   movie: IMassiveMovie[];
 };
+export interface IMassiveResponse<T extends  ITypeTitle> {
+  page: number;
+  results: IMassiveResponseMap[T];
+  total_pages: number;
+  total_results: number;
+}

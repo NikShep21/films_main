@@ -8,6 +8,7 @@ import { CardWrapper } from "../cardWrapper/CardWrapper";
 import BigCard from "../Cards/bigCard/BigCard";
 import LoadCard from "../loadCard/LoadCard";
 import ImagePlaceholder from "../ImagePlaceholder/ImagePlaceholder";
+import ButtonCarousel from "../ButtonCarousel/ButtonCarousel";
 interface MainCarouselProps {
   data: IMassiveMovie[] | undefined;
   isLoading?: boolean;
@@ -25,6 +26,11 @@ const MainCarousel = ({
     useMainCarousel<IMassiveMovie>({ data });
 
   return (
+  
+    
+    <div className={styles.carouselContainer}>
+
+      <ButtonCarousel className={styles.btnLeft} size="clamp(20px, 4vw, 35px)" type={"left"}  />
     <div className={styles.carousel}>
       <div className={styles.carouselLine}>
         {carouselElem.map((elem, index) => (
@@ -41,6 +47,11 @@ const MainCarousel = ({
         ))}
       </div>
     </div>
+      <ButtonCarousel className={styles.btnRight} size="clamp(20px, 4vw, 35px)" type={"right"}  />
+    </div>
+    
+    
+    
   );
 };
 

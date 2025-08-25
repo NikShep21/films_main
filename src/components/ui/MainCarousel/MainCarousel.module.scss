@@ -1,9 +1,20 @@
-@use 'mixins.scss' as *;
-.carousel{
-    position: relative;
+@use '_mixins.scss' as *;
+.carouselContainer{
     @include container;
-    padding: 0px 4rem;
+  
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    background-color: black;
+    
+}
+.carousel{                  
+    position: relative;
+    flex: 1;
+   
+    
     touch-action: none;
+    
     
     .carouselLine{
         position: relative;

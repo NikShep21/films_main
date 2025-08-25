@@ -5,7 +5,10 @@ const ImagePlaceholder = ({size=200, aspect=''}:{size?:number, aspect?:string}) 
   return (
     <div style={{aspectRatio:aspect}} className={styles.imagePlaceholder} >
       <div className={styles.content}>
-        <GiFilmSpool size={size}/>
+        
+          
+        <GiFilmSpool  className={styles.svg}/>
+        
         
       </div>
     

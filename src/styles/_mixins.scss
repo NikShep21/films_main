@@ -3,4 +3,5 @@
 @mixin container{
     max-width: $containerSize;
     margin: 0 auto;
+    padding: 0px $paddingMobile;
 }

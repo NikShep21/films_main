@@ -5,10 +5,13 @@ import { aspects } from "@/shared/variables/variables";
 import { useState } from "react";
 import useMainCarousel from "@/shared/hooks/useMainCarousel";
 import { CardWrapper } from "../cardWrapper/CardWrapper";
-import BigCard from "../Cards/bigCard/BigCard";
+import BigCard from "../Cards/bigCardDesktop/BigCardDesktop";
 import LoadCard from "../loadCard/LoadCard";
 import ImagePlaceholder from "../ImagePlaceholder/ImagePlaceholder";
 import ButtonCarousel from "../ButtonCarousel/ButtonCarousel";
+import { useResize } from "@/shared/hooks/useResize";
+import BigCardDesktop from "../Cards/bigCardDesktop/BigCardDesktop";
+import BigCardMobile from "../Cards/bigCardMobile/BigCardMobile";
 interface MainCarouselProps {
   data: IMassiveMovie[] | undefined;
   isLoading?: boolean;
@@ -21,7 +24,7 @@ const MainCarousel = ({
   aspect = aspects.ASPECT_BIG_CARD,
   aspectMobile = aspects.ASPECT_CARD,
 }: MainCarouselProps) => {
-  
+  const {isScreenMd} = useResize();
   const { carouselElem, activeIndex, offset, handleNext, handlePrev } =
     useMainCarousel<IMassiveMovie>({ data });
 
@@ -36,11 +39,11 @@ const MainCarousel = ({
         {carouselElem.map((elem, index) => (
           <CardWrapper<IMassiveMovie>
             key={index}
-            aspect={aspect}
+            aspect={isScreenMd ? aspectMobile : aspect}
             data={elem}
             isLoading={isLoading}
             className={styles.cardWrapper}
-            CardComponent={BigCard}
+            CardComponent={isScreenMd ? BigCardMobile : BigCardDesktop}
             SkeletonComponent={LoadCard}
             PlaceholderComponent={ImagePlaceholder}
           />
